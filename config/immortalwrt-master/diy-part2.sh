@@ -35,6 +35,9 @@ git clone https://github.com/esirplayground/luci-app-poweroff.git package/luci-a
 # 微信推送
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 
+# luci-app-zerotier
+rm -rf feeds/luci/applications/luci-app-zerotier
+git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
