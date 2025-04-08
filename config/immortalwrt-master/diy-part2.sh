@@ -39,12 +39,6 @@ git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wec
 rm -rf feeds/luci/applications/luci-app-zerotier
 git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
 
-# 添加主题
-rm -rf feeds/luci/themes/luci-theme-argon
-# git clone --depth=1 https://github.com/jerrykuku/luci-theme-argon package/luci-theme-argon
-merge_package openwrt-24.10 https://github.com/sbwml/luci-theme-argon package luci-theme-argon
-# git clone --depth=1 -b js https://github.com/sirpdboy/luci-theme-kucat package/luci-theme-kucat
-
 # TTYD设置
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/utils/ttyd/files/ttyd.init
