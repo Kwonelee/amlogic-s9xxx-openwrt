@@ -26,9 +26,6 @@ sed -i 's/192.168.1.1/192.168.5.88/g' package/base-files/files/bin/config_genera
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
-# Add luci-app-adguardhome
-git clone https://github.com/Kwonelee/luci-app-adguardhome.git package/luci-app-adguardhome
-
 # poweroff
 git clone https://github.com/esirplayground/luci-app-poweroff.git package/luci-app-poweroff
 
@@ -36,8 +33,8 @@ git clone https://github.com/esirplayground/luci-app-poweroff.git package/luci-a
 git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
 
 # luci-app-zerotier
-rm -rf feeds/luci/applications/luci-app-zerotier
-git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
+# rm -rf feeds/luci/applications/luci-app-zerotier
+# git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
 
 # TTYD设置
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
