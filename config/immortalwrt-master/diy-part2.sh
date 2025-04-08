@@ -29,9 +29,6 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 # poweroff
 git clone https://github.com/esirplayground/luci-app-poweroff.git package/luci-app-poweroff
 
-# 微信推送
-git clone https://github.com/tty228/luci-app-wechatpush.git package/luci-app-wechatpush
-
 # luci-app-zerotier
 # rm -rf feeds/luci/applications/luci-app-zerotier
 # git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
