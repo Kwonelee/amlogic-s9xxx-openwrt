@@ -26,9 +26,6 @@ sed -i 's/192.168.1.1/192.168.5.88/g' package/base-files/files/bin/config_genera
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
-# poweroff
-git clone https://github.com/esirplayground/luci-app-poweroff.git package/luci-app-poweroff
-
 # luci-app-zerotier
 # rm -rf feeds/luci/applications/luci-app-zerotier
 # git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
