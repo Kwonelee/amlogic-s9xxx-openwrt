@@ -26,7 +26,7 @@ sed -i 's/192.168.1.1/192.168.5.88/g' package/base-files/files/bin/config_genera
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
-# luci-app-zerotier
+# Add luci-app-zerotier
 # rm -rf feeds/luci/applications/luci-app-zerotier
 # git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
 
@@ -34,7 +34,7 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 
-# 精简 UPnP 菜单名称
+# 精简UPnP菜单名称
 sed -i 's#\"title\": \"UPnP IGD \& PCP\"#\"title\": \"UPnP\"#g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 # 移动 UPnP 到 “网络” 子菜单
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
