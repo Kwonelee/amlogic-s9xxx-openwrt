@@ -34,6 +34,9 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 sed -i 's/procd_set_param stderr 1/procd_set_param stderr 0/g' feeds/packages/utils/ttyd/files/ttyd.init
 
+# APK管理器不再校验版本号的合法性
+mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/config/immortalwrt-master/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
+
 # 精简UPnP菜单名称
 sed -i 's#\"title\": \"UPnP IGD \& PCP\"#\"title\": \"UPnP\"#g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 # 移动 UPnP 到 “网络” 子菜单
