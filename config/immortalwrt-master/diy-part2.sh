@@ -28,7 +28,7 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # Add luci-app-zerotier
 # rm -rf feeds/luci/applications/luci-app-zerotier
-# git clone https://github.com/lwb1978/luci-app-zerotier.git package/luci-app-zerotier
+# git clone https://github.com/Kwonelee/luci-app-zerotier.git package/luci-app-zerotier
 
 # TTYD设置
 sed -i 's/procd_set_param stdout 1/procd_set_param stdout 0/g' feeds/packages/utils/ttyd/files/ttyd.init
