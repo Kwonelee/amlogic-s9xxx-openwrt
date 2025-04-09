@@ -40,7 +40,7 @@ sed -i 's#\"title\": \"UPnP IGD \& PCP\"#\"title\": \"UPnP\"#g' feeds/luci/appli
 sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
 
 # apk-tools APK管理器不再校验版本号的合法性
-mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/patch/apk-tools/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
+mkdir -p package/system/apk/patches && cp -f ${GITHUB_WORKSPACE}/config/immortalwrt-master/9999-hack-for-linux-pre-releases.patch package/system/apk/patches/
 
 mirror=raw.githubusercontent.com/sbwml/r4s_build_script/master
 
