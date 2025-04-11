@@ -222,7 +222,7 @@ on:
         options:
           - ophub
           - angel
-          - yourname
+          - kwonelee
 
 env:
   TZ: America/New_York
