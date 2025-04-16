@@ -29,6 +29,8 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 # 添加主题
 cd openwrt/package
 git clone https://github.com/jerrykuku/luci-theme-argon.git
+sed -i '20,29d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer.htm
+sed -i '20,28d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer_login.htm
 make menuconfig #choose LUCI->Theme->Luci-theme-argon
 make -j1 V=s
 
