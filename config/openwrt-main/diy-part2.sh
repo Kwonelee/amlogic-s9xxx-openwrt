@@ -25,6 +25,19 @@ sed -i 's/192.168.1.1/192.168.5.88/g' package/base-files/files/bin/config_genera
 # Add luci-app-amlogic
 rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
+
+# 添加主题
+cd openwrt/package
+git clone https://github.com/jerrykuku/luci-theme-argon.git
+make menuconfig #choose LUCI->Theme->Luci-theme-argon
+make -j1 V=s
+
+# 添加主题设置
+cd openwrt/package
+git clone https://github.com/jerrykuku/luci-app-argon-config.git
+make menuconfig #choose LUCI->Application->Luci-app-argon-config
+make -j1 V=s
+
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
