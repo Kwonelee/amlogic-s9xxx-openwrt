@@ -27,18 +27,12 @@ rm -rf package/luci-app-amlogic
 git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # 添加主题
-cd openwrt/package
-git clone https://github.com/jerrykuku/luci-theme-argon.git
+git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
 sed -i '20,29d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer.htm
 sed -i '20,28d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer_login.htm
-make menuconfig #choose LUCI->Theme->Luci-theme-argon
-make -j1 V=s
 
 # 添加主题设置
-cd openwrt/package
-git clone https://github.com/jerrykuku/luci-app-argon-config.git
-make menuconfig #choose LUCI->Application->Luci-app-argon-config
-make -j1 V=s
+git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
 #
 # Apply patch
