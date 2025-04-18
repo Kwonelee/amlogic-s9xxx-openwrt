@@ -28,8 +28,6 @@ git clone https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 
 # 添加主题
 git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-argon
-sed -i '20,29d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer.htm
-sed -i '20,28d' feeds/luci/themes/luci-theme-argon/luasrc/view/themes/argon/footer_login.htm
 
 # 添加主题设置
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
