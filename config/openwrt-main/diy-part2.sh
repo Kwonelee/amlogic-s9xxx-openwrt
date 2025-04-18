@@ -32,6 +32,11 @@ git clone https://github.com/jerrykuku/luci-theme-argon.git package/luci-theme-a
 # 添加主题设置
 git clone https://github.com/jerrykuku/luci-app-argon-config.git package/luci-app-argon-config
 
+# 精简UPnP菜单名称
+sed -i 's#\"title\": \"UPnP IGD \& PCP\"#\"title\": \"UPnP\"#g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+# 移动 UPnP 到 “网络” 子菜单
+sed -i 's/services/network/g' feeds/luci/applications/luci-app-upnp/root/usr/share/luci/menu.d/luci-app-upnp.json
+
 #
 # Apply patch
 # git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
