@@ -322,7 +322,8 @@ jobs:
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
-        uses: ophub/amlogic-s9xxx-openwrt@main
+        #uses: ophub/amlogic-s9xxx-openwrt@main
+        uses: Kwonelee/amlogic-s9xxx-openwrt@main
         with:
           openwrt_path: imagebuilder/output/*rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
