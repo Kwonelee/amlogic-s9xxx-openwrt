@@ -25,7 +25,7 @@ on:
       openwrt_board:
         description: "Select device board"
         required: false
-        default: "all"
+        default: "tvi3315a"
         type: choice
         options:
           - all
@@ -221,12 +221,12 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "kwonelee"
         type: choice
         options:
           - ophub
           - angel
-          - yourname
+          - kwonelee
 
 env:
   TZ: America/New_York
