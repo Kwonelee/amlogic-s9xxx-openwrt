@@ -226,12 +226,12 @@ on:
       builder_name:
         description: "Set OpenWrt builder signature."
         required: false
-        default: "ophub"
+        default: "kwonelee"
         type: choice
         options:
           - ophub
           - angel
-          - yourname
+          - kwonelee
 
 env:
   TZ: America/New_York
