@@ -81,12 +81,12 @@ on:
       kernel_sign:
         description: "Set the kernel custom signature"
         required: false
-        default: ""
+        default: " "
         type: choice
         options:
           - -ophub
           - -yourname
-          - 
+          -  
 
 env:
   TZ: America/New_York
