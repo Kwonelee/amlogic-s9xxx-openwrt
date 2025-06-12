@@ -344,7 +344,7 @@ jobs:
         if: ${{ steps.down.outputs.status }} == 'success' && !cancelled()
         uses: ophub/amlogic-s9xxx-openwrt@main
         with:
-          openwrt_path: openwrt/output/*rootfs.tar.gz
+          openwrt_path: https://github.com/Kwonelee/OP-ARM/releases/download/openwrt_armvirt/openwrt-armsr-armv8-generic-rootfs.tar.gz
           openwrt_board: ${{ inputs.openwrt_board }}
           openwrt_kernel: ${{ inputs.openwrt_kernel }}
           auto_kernel: ${{ inputs.auto_kernel }}
