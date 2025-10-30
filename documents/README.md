@@ -471,7 +471,7 @@ When we are using openwrt, we have configured many pieces of software. Most of t
     [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
     chmod +x ${DIY_P2_SH}
     cd openwrt
-    ${GITHUB_WORKSPACE}/${DIY_P2_SH}
+    ${{ github.workspace }}/${DIY_P2_SH}
 ```
 
 Please do not copy those configuration information files that involve privacy. If your repository is public, the files you put in the files directory are also public. Do not expose secrets. Some password information can be encrypted using private key settings and other methods that you just learned in the GitHub Actions Quick Start Guide. You must understand what you are doing.

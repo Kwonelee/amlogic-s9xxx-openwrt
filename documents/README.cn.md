@@ -466,7 +466,7 @@ REPO_BRANCH: openwrt-21.02
     [[ -e "${CONFIG_FILE}" ]] && cp -f ${CONFIG_FILE} openwrt/.config
     chmod +x ${DIY_P2_SH}
     cd openwrt
-    ${GITHUB_WORKSPACE}/${DIY_P2_SH}
+    ${{ github.workspace }}/${DIY_P2_SH}
 ```
 
 请不要复制那些涉及隐私的配置信息文件，如果你的仓库是公开的，那么你放在 files 目录里的文件也是公开的，千万不要把秘密公开。一些密码等信息，可以使用你刚才在 GitHub Actions 快速上手指南里学习到的私钥设置等方法来加密使用。你一定要了解你在做什么。

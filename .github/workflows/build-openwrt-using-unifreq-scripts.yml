@@ -176,7 +176,7 @@ jobs:
 
           armsr_tarfile_path="openwrt/output"
           [[ -d "${armsr_tarfile_path}" ]] || mkdir -p ${armsr_tarfile_path}
-          ln -sf /builder/openwrt ${GITHUB_WORKSPACE}/openwrt
+          ln -sf /builder/openwrt ${{ github.workspace }}/openwrt
 
           latest_version=$(curl -s \
                 -H "Accept: application/vnd.github+json" \
