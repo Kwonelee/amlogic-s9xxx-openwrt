@@ -161,7 +161,7 @@ create_partition() {
     ROOT2="960"
 
     # Format emmc disk
-    echo -e "${INFO} Start create MBR and partittion."
+    echo -e "${INFO} Start create MBR and partition."
     parted -s "${DEV_EMMC}" mklabel msdos
     parted -s "${DEV_EMMC}" mkpart primary fat32 $((BLANK1))MiB $((BLANK1 + BOOT - 1))MiB
     parted -s "${DEV_EMMC}" mkpart primary btrfs $((BLANK1 + BOOT))MiB $((BLANK1 + BOOT + ROOT1 - 1))MiB
@@ -190,7 +190,7 @@ copy_bootfs() {
     PART_BOOT="${DEV_EMMC}p1"
 
     if grep -q ${PART_BOOT} /proc/mounts; then
-        echo -e "${INFO} Unmounting BOOT partiton."
+        echo -e "${INFO} Unmounting BOOT partition."
         umount -f ${PART_BOOT}
         [[ "${?}" -eq "0" ]] || error_msg "Failed to umount [ ${PART_BOOT} ]."
     fi
@@ -251,7 +251,7 @@ copy_rootfs() {
     PART_ROOT="${DEV_EMMC}p2"
 
     if grep -q ${PART_ROOT} /proc/mounts; then
-        echo -e "${INFO} Unmounting ROOTFS1 partiton."
+        echo -e "${INFO} Unmounting ROOTFS1 partition."
         umount -f ${PART_ROOT}
         [[ "${?}" -eq "0" ]] || error_msg "Failed to umount [ ${PART_ROOT} ]."
     fi
@@ -268,15 +268,17 @@ copy_rootfs() {
     echo -e "${INFO} Start copy ROOTFS partition data."
     # Create relevant directories
     mkdir -p ${DIR_INSTALL}/{boot/,dev/,overlay/,rom/,mnt/,proc/,run/,sys/,tmp/,.reserved/,.snapshots/}
-    chmod 777 ${DIR_INSTALL}/tmp
+    chmod 1777 ${DIR_INSTALL}/tmp
     # Copy the relevant directory
     COPY_SRC="root etc bin sbin lib opt usr www"
     for src in ${COPY_SRC}; do
-        echo -e "${INFO} Copy the [ ${src} ] directory."
-        tar -cf - ${src} | (
-            cd ${DIR_INSTALL}
-            tar -mxf -
-        )
+        if [[ -d "${src}" ]]; then
+            echo -e "${INFO} Copying [ ${src} ] ..."
+            tar -cf - ${src} | (
+                cd ${DIR_INSTALL}
+                tar -xpf -
+            )
+        fi
     done
     # Create relevant symbolic link
     ln -sf /lib ${DIR_INSTALL}/lib64
