@@ -37,6 +37,8 @@ on:
           - alark35-3500
           - anas3035
           - aio-3399b
+          - aio-3399c
+          - aio-3399c-ai
           - bdkj-bd-one
           - bdy-g18-pro
           - beikeyun
@@ -73,6 +75,7 @@ on:
           - lckfb-tspi
           - leez
           - lx-r3s
+          - lz-d3568
           - lz-k3568
           - mrkaio-m68s
           - nanopc-t4
@@ -209,7 +212,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.1.y_6.12.y"
+        default: "6.12.y_6.18.y"
         type: choice
         options:
           - 5.10.y
@@ -219,10 +222,10 @@ on:
           - 6.12.y
           - 6.18.y
           - 5.10.y_5.15.y
-          - 5.15.y_6.1.y
-          - 6.1.y_6.12.y
           - 6.1.y_6.6.y
-          - 6.6.y_6.12.y
+          - 6.12.y_6.18.y
+          - 6.1.y_6.12.y
+          - 6.1.y_6.18.y
       auto_kernel:
         description: "Auto use the latest kernel"
         required: false
