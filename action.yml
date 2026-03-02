@@ -71,9 +71,9 @@ runs:
             if [[ -z "$(ls ${openwrt_savepath}/${openwrt_savefile} 2>/dev/null)" ]]; then
                 echo -e "Copy OpenWrt rootfs file: [ ${openwrt_filename} ]"
                 if [[ "${openwrt_filename}" =~ ^/ ]]; then
-                    cp -vf ${openwrt_filename} ${openwrt_savepath}/ || true
+                    cp -vf ${openwrt_filename} -t ${openwrt_savepath}/ || true
                 else
-                    cp -vf ${{ github.workspace }}/${openwrt_filename} ${openwrt_savepath}/ || true
+                    cp -vf ${{ github.workspace }}/${openwrt_filename} -t ${openwrt_savepath}/ || true
                 fi
             else
                 echo -e "The [ ${openwrt_savepath}/${openwrt_savefile} ] file already exists, skipping."
@@ -89,7 +89,7 @@ runs:
             copy_from_path="${copy_from_path%/}"
             [[ "${copy_from_path}" != /* ]] && copy_from_path="${{ github.workspace }}/${copy_from_path}"
             copy_to_path="make-openwrt/openwrt-files/common-files"
-            cp -avf --no-preserve=ownership "${copy_from_path}/." "${copy_to_path}/" || true
+            cp -avf --no-preserve=ownership "${copy_from_path}/." -t "${copy_to_path}/" || true
         else
             echo -e "Use the default OpenWrt remake files."
         fi
@@ -111,7 +111,7 @@ runs:
         cd ${{ github.action_path }}
         # Copy OpenWrt rootfs.tar.gz file to the output directory
         echo -e "About the [ ${openwrt_savepath} ] directory: \n$(ls -lh ${openwrt_savepath} 2>/dev/null)"
-        sudo cp -vf ${openwrt_savepath}/${openwrt_savefile} ${openwrt_outpath}/ || true
+        sudo cp -vf ${openwrt_savepath}/${openwrt_savefile} -t ${openwrt_outpath}/ || true
         sync && sleep 3
 
         cd ${{ github.action_path }}
