@@ -67,7 +67,9 @@ on:
           - h88k
           - h88k-v3
           - h96-max-m2
+          - hk1-rbox-k8s
           - hs530r
+          - ht2
           - hugsun-x99
           - ipc-r
           - jp-tvbox
@@ -421,7 +423,7 @@ jobs:
           echo "status=success" >> ${GITHUB_OUTPUT}
 
       - name: Cache ccache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: /builder/openwrt/.ccache
           key: openwrt-${{ env.REPO_NAME }}-${{ env.source_hash }}
