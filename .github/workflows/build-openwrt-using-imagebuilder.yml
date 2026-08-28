@@ -82,6 +82,7 @@ on:
           - gea-6319
           - gzpeite-p01
           - h28k
+          - h339pc
           - h618-ai-douhe
           - h618-devboard
           - h66k
@@ -242,6 +243,7 @@ on:
           - sv-33a6x-vpu
           - swan1-w28
           - sw799
+          - sz3390
           - taram
           - tanix-tx6
           - tb-ls3399
