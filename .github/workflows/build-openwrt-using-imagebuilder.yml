@@ -20,7 +20,7 @@ on:
         options:
           - openwrt:25.12.5
           - openwrt:24.10.8
-          - immortalwrt:25.12.1
+          - immortalwrt:25.12.2
           - immortalwrt:24.10.6
       openwrt_board:
         description: "Select device board"
@@ -108,6 +108,7 @@ on:
           - lubancat-2
           - lubancat-3
           - lubancat-4
+          - lubancat-5
           - lx-r3s
           - lyt-t68m
           - lz-d3568
