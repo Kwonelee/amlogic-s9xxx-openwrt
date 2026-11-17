@@ -1,0 +1,28 @@
+--- a/package/kernel/mac80211/ath.mk
++++ b/package/kernel/mac80211/ath.mk
+@@ -45,7 +45,11 @@
+ 	WIL6210_TRACING
+ endif
+ 
+-config-$(call config_package,qcom-qmi-helpers) += QCOM_QMI_HELPERS
++# armsr/armv8 already has CONFIG_QCOM_QMI_HELPERS=y.
++# Do not build a duplicate qmi_helpers.ko from backports;
++# ath11k can use the symbols exported by vmlinux.
++config-$(and $(call config_package,qcom-qmi-helpers),$(filter-out armsr_armv8,$(BOARD)_$(SUBTARGET))) += QCOM_QMI_HELPERS
++
+ config-$(call config_package,ath,regular smallbuffers) += ATH_CARDS ATH_COMMON
+ config-$(CONFIG_PACKAGE_ATH_DEBUG) += ATH_DEBUG ATH10K_DEBUG ATH11K_DEBUG ATH12K_DEBUG ATH9K_STATION_STATISTICS
+ config-$(CONFIG_PACKAGE_ATH_DFS) += ATH9K_DFS_CERTIFIED ATH10K_DFS_CERTIFIED
+@@ -152,6 +156,12 @@
+   AUTOLOAD:=$(call AutoProbe,qmi_helpers)
+ endef
+ 
++ifeq ($(BOARD)_$(SUBTARGET),armsr_armv8)
++  define KernelPackage/qcom-qmi-helpers/install
++	@:
++  endef
++endif
++
+ define KernelPackage/ath
+   $(call KernelPackage/mac80211/Default)
+   TITLE:=Atheros common driver part

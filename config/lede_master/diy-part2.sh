@@ -53,6 +53,6 @@ rm -rf package/luci-app-amlogic
 git clone -b main https://github.com/ophub/luci-app-amlogic.git package/luci-app-amlogic
 #
 # Apply patch
-# git apply ../config/patches/{0001*,0002*}.patch --directory=feeds/luci
+for patch in "${GITHUB_WORKSPACE}"/config/lede_master/patches/*.patch; do git apply "${patch}" || echo "[PATCH SKIPPED] ${patch}" >&2; done
 #
 # ------------------------------- Other ends -------------------------------
